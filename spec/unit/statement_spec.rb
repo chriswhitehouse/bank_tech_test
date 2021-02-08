@@ -3,9 +3,6 @@
 require 'statement'
 
 describe Statement do
-  let(:testdate1) { Date.new(2012, 1, 12) }
-  let(:testdate2) { Date.new(2012, 1, 13) }
-  let(:testdate3) { Date.new(2012, 1, 14) }
   let(:transaction_log) do
     [
       { type: :credit, date: testdate1, value: 1000, balance: 1000.0 },

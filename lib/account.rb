@@ -6,28 +6,28 @@ require 'time'
 class Account
   attr_reader :balance
 
-  def initialize(statement_class = Statement)
+  def initialize(statement_class = Statement, transaction_log_class = TransactionLog)
     @statement_class = statement_class
     @balance = 0.00
-    @transaction_log = []
+    @transaction_log = transaction_log_class.new
   end
 
   def deposit(amount)
     raise 'Error: Only numeric arguments can be deposited' unless numeric?(amount)
 
     credit_balance(amount)
-    add_transaction(type: :credit, amount: amount)
+    @transaction_log.add_transaction(type: :credit, amount: amount, balance: @balance)
   end
 
   def withdrawal(amount)
     raise 'Error: Only numeric arguments can be withdrawn' unless numeric?(amount)
 
     debit_balance(amount)
-    add_transaction(type: :debit, amount: amount)
+    @transaction_log.add_transaction(type: :debit, amount: amount, balance: @balance)
   end
 
   def print_statement
-    @statement_class.new(@transaction_log).string
+    @statement_class.new(@transaction_log.show).string
   end
 
   private
@@ -42,9 +42,5 @@ class Account
 
   def debit_balance(amount)
     @balance -= amount
-  end
-
-  def add_transaction(type:, amount:)
-    @transaction_log << { type: type, date: Date.today, value: amount, balance: @balance }
   end
 end

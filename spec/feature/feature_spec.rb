@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'time'
-require './spec/helpers/transactions_helper'
+require './spec/helpers/transaction_helper'
 require './spec/helpers/statement_helper'
 
 describe 'Acceptance Criteria' do

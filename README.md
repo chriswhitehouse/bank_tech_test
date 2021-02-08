@@ -65,6 +65,7 @@ date || credit || debit || balance
 | :------------- | :------------- |
 | Account     | deposit, withdrawal, print_statement       |
 | Statement | create_string |
+| TransactionLog | add_transaction, show |
 
 
 ## Code Example

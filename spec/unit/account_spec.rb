@@ -4,9 +4,9 @@ require 'account'
 require 'time'
 
 describe Account do
-  let(:statement_double) { double :statement, string: statement_string }
-  let(:statement_class_double) { double :statement_class, new: statement_double }
-  let(:account) { Account.new(statement_class_double) }
+  # let(:statement_double) { double :statement, string: statement_string }
+  # let(:statement_class_double) { double :statement_class, new: statement_double }
+  let(:account) { Account.new(statement_class_double, transaction_log_class_double) }
 
   describe '#deposit' do
     it 'should add money to the account balance' do

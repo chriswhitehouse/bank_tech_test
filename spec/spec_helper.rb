@@ -16,7 +16,7 @@
 #
 require 'simplecov'
 require 'simplecov-console'
-require './spec/helpers/transactions_helper'
+require './spec/helpers/transaction_helper'
 require './spec/helpers/statement_helper'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
@@ -109,6 +109,6 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
-  config.include Helpers::Transactions
+  config.include Helpers::Transaction
   config.include Helpers::Statement
 end
