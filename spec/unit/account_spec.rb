@@ -17,6 +17,10 @@ describe Account do
     it 'should add money to the account balance' do
       expect { account.deposit(1000) }.to change { account.balance }.by(1000)
     end
+
+    it 'should return error if non integer is passed' do
+      expect { account.deposit('') }.to raise_error("Error: Only numeric arguments can be deposited")
+    end
   end
 
   describe '#withdrawal' do

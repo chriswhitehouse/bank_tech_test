@@ -11,6 +11,7 @@ class Account
   end
 
   def deposit(amount)
+    raise "Error: Only numeric arguments can be deposited" unless amount.is_a?(Numeric)
     @balance += amount
     @transaction_log << { type: :credit, date: Date.today, value: amount, balance: @balance }
   end
