@@ -2,6 +2,7 @@
 
 require 'time'
 require './spec/helpers/transactions_helper'
+require './spec/helpers/statement_helper'
 
 describe 'Acceptance Criteria' do
   let(:account) { Account.new }
@@ -12,11 +13,6 @@ describe 'Acceptance Criteria' do
   it 'should receive two deposits and one withdrawal and return a statement' do
     three_transactions
 
-    expect(account.print_statement).to eq(
-      "date || credit || debit || balance\n"\
-      "14/01/2012 || || 500.00 || 2500.00\n"\
-      "13/01/2012 || 2000.00 || || 3000.00\n"\
-      '12/01/2012 || 1000.00 || || 1000.00'
-    )
+    expect(account.print_statement).to eq(statement_string)
   end
 end

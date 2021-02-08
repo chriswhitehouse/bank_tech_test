@@ -17,6 +17,7 @@
 require 'simplecov'
 require 'simplecov-console'
 require './spec/helpers/transactions_helper'
+require './spec/helpers/statement_helper'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
   [SimpleCov::Formatter::Console,
@@ -109,4 +110,5 @@ RSpec.configure do |config|
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
   config.include Helpers::Transactions
+  config.include Helpers::Statement
 end
