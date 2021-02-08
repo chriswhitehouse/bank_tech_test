@@ -31,7 +31,6 @@ GEM
     highline (2.0.3)
     i18n (1.8.8)
       concurrent-ruby (~> 1.0)
-    jaro_winkler (1.5.4)
     json (2.5.1)
     json_pure (2.5.1)
     launchy (2.4.3)
@@ -49,6 +48,8 @@ GEM
       json
       websocket (~> 1.0)
     rainbow (3.0.0)
+    regexp_parser (2.0.3)
+    rexml (3.2.4)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -62,15 +63,20 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (0.79.0)
-      jaro_winkler (~> 1.5.1)
+    rubocop (1.8.1)
       parallel (~> 1.10)
-      parser (>= 2.7.0.1)
+      parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.2.0, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-performance (1.5.2)
-      rubocop (>= 0.71.0)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.4.1)
+      parser (>= 2.7.1.5)
+    rubocop-performance (1.9.2)
+      rubocop (>= 0.90.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.4)
     simplecov (0.21.2)
@@ -83,11 +89,10 @@ GEM
       terminal-table
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
-    standard (0.2.2)
-      rubocop (~> 0.79.0)
-      rubocop-performance (~> 1.5.1)
-    terminal-table (3.0.0)
-      unicode-display_width (~> 1.1, >= 1.1.1)
+    standard (0.12.0)
+      rubocop (= 1.8.1)
+      rubocop-performance (= 1.9.2)
+    terminal-table (1.6.0)
     thread_safe (0.3.6)
     travis (1.10.0)
       faraday (~> 1.0)
@@ -99,7 +104,7 @@ GEM
       pusher-client (~> 0.4)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    unicode-display_width (1.6.1)
+    unicode-display_width (2.0.0)
     websocket (1.2.9)
 
 PLATFORMS
@@ -108,7 +113,7 @@ PLATFORMS
 
 DEPENDENCIES
   rspec
-  rubocop (= 0.79.0)
+  rubocop
   simplecov
   simplecov-console
   standard

@@ -9,9 +9,8 @@ This is a practice for the type of tests potential employers offer as part of th
 Travis: [![Build Status](https://travis-ci.com/chriswhitehouse/bank_tech_test.svg?branch=main)](https://travis-ci.com/chriswhitehouse/bank_tech_test)
 
 ## Code style
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+Ruby Standard Style: [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 ## Screenshots
 Include logo/demo screenshot etc.
