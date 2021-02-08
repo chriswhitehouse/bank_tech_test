@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './lib/statement'
+require './lib/transaction_log'
 require 'time'
 # An Account class for recieving deposits, withdrawals and printing statements
 class Account
@@ -27,7 +28,7 @@ class Account
   end
 
   def print_statement
-    @statement_class.new(@transaction_log.show).string
+    puts @statement_class.new(@transaction_log.show).string
   end
 
   private

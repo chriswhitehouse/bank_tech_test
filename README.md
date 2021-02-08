@@ -21,7 +21,7 @@ Rubocop: [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-br
 
 ## Screenshots
 
-![irb](https://github.com/chriswhitehouse/bank_tech_test/blob/main/screenshots/Screenshot%202021-02-08%20at%2018.50.13.png)
+![irb](https://github.com/chriswhitehouse/bank_tech_test/blob/main/screenshots/Screenshot%202021-02-08%20at%2020.40.16.png)
 
 ## Tech/framework used
 Ruby, with Rspec testing framework.
