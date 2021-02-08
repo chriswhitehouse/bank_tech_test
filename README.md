@@ -23,7 +23,7 @@ Ruby, with Rspec testing framework.
 
 ```
 As a customer,
-So that I can add money yo my account,
+So that I can add money to my account,
 I want to be able to make a deposit
 ```
 ```
@@ -51,6 +51,11 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || 3000.00
 12/01/2012 || 1000.00 || 1000.00
 ```
+
+### Domain Model
+| Nouns     | Actions     |
+| :------------- | :------------- |
+| Account     | deposit, withdrawal, print_statement       |
 
 
 ## Code Example
