@@ -9,7 +9,7 @@ describe 'Acceptance Criteria' do
   let(:testdate2) { Date.new(2012, 1, 13) }
   let(:testdate3) { Date.new(2012, 1, 14) }
 
-  it 'should receive a 2 deposits and one withdrawal and return a statement' do
+  it 'should receive two deposits and one withdrawal and return a statement' do
     three_transactions
 
     expect(account.print_statement).to eq(

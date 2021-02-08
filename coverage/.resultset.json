@@ -1,7 +1,33 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/chriswhitehouse/Projects/bank_tech_test/spec/account_spec.rb": {
+      "/Users/chriswhitehouse/Projects/bank_tech_test/spec/feature/feature_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/chriswhitehouse/Projects/bank_tech_test/spec/unit/account_spec.rb": {
         "lines": [
           null,
           null,
@@ -10,6 +36,13 @@
           1,
           null,
           1,
+          4,
+          null,
+          null,
+          null,
+          null,
+          4,
+          4,
           4,
           2,
           2,
@@ -52,6 +85,7 @@
           1,
           4,
           4,
+          4,
           null,
           null,
           1,
@@ -63,6 +97,48 @@
           3,
           3,
           null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/chriswhitehouse/Projects/bank_tech_test/spec/unit/statement_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          2,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/chriswhitehouse/Projects/bank_tech_test/lib/statement.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
           null,
           1,
           2,
@@ -81,35 +157,8 @@
           null,
           null,
           null,
-          null,
           1,
           2,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/chriswhitehouse/Projects/bank_tech_test/spec/feature_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          2,
-          2,
-          2,
-          2,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
           null,
           null,
           null,
@@ -118,6 +167,6 @@
         ]
       }
     },
-    "timestamp": 1612803846
+    "timestamp": 1612805777
   }
 }
