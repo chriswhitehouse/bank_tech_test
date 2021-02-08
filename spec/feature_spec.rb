@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'time'
+require './spec/helpers/transactions_helper'
 
 describe 'Acceptance Criteria' do
   let(:account) { Account.new }
@@ -9,12 +10,8 @@ describe 'Acceptance Criteria' do
   let(:testdate3) { Date.new(2012, 1, 14) }
 
   it 'should receive a 2 deposits and one withdrawal and return a statement' do
-    allow(Date).to receive(:today).and_return(testdate1)
-    account.deposit(1000)
-    allow(Date).to receive(:today).and_return(testdate2)
-    account.deposit(2000)
-    allow(Date).to receive(:today).and_return(testdate3)
-    account.withdrawal(500)
+    three_transactions
+
     expect(account.print_statement).to eq(
       "date || credit || debit || balance\n"\
       "14/01/2012 || || 500.00 || 2500.00\n"\

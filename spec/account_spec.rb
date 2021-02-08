@@ -2,6 +2,7 @@
 
 require 'account'
 require 'time'
+require './spec/helpers/transactions_helper'
 
 describe Account do
   let(:account) { Account.new }
@@ -22,34 +23,8 @@ describe Account do
   end
 
   describe '#print_statement' do
-    it 'should print one transaction and the account balance' do
-      allow(Date).to receive(:today).and_return(testdate1)
-      account.deposit(1000)
-      expect(account.print_statement).to eq(
-        "date || credit || debit || balance\n"\
-        '12/01/2012 || 1000.00 || || 1000.00'
-      )
-    end
-
-    it 'should print two transactions and the account balance for each' do
-      allow(Date).to receive(:today).and_return(testdate1)
-      account.deposit(1000)
-      allow(Date).to receive(:today).and_return(testdate2)
-      account.deposit(2000)
-      expect(account.print_statement).to eq(
-        "date || credit || debit || balance\n"\
-        "13/01/2012 || 2000.00 || || 3000.00\n"\
-        '12/01/2012 || 1000.00 || || 1000.00'
-      )
-    end
-
     it 'should print three transactions and the account balance for each' do
-      allow(Date).to receive(:today).and_return(testdate1)
-      account.deposit(1000)
-      allow(Date).to receive(:today).and_return(testdate2)
-      account.deposit(2000)
-      allow(Date).to receive(:today).and_return(testdate3)
-      account.withdrawal(500)
+      three_transactions
       expect(account.print_statement).to eq(
         "date || credit || debit || balance\n"\
         "14/01/2012 || || 500.00 || 2500.00\n"\
