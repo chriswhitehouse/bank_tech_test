@@ -10,7 +10,7 @@ Travis: [![Build Status](https://travis-ci.com/chriswhitehouse/bank_tech_test.sv
 
 ## Code style
 
-Ruby Standard Style: [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+Rubocop: [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop-hq/rubocop)
 
 ## Screenshots
 Include logo/demo screenshot etc.
