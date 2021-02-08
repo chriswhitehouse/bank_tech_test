@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-08T16:30:37+00:00">2021-02-08T16:30:37+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-08T16:58:40+00:00">2021-02-08T16:58:40+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.89
+         1.94
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>46</b> relevant lines,
-    <span class="green"><b>46</b> lines covered</span> and
+    <b>48</b> relevant lines,
+    <span class="green"><b>48</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,11 +73,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#eaebeb3c595eed3c43b8156ae96f311bc5abfe1a" class="src_link" title="lib/account.rb">lib/account.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">37</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">18</td>
+            <td class="cell--number">41</td>
+            <td class="cell--number">20</td>
+            <td class="cell--number">20</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.39</td>
+            <td class="cell--number">2.45</td>
             
           </tr>
         
@@ -134,8 +134,8 @@
     
 
     <div class="t-line-summary">
-      <b>18</b> relevant lines.
-      <span class="green"><b>18</b> lines covered</span> and
+      <b>20</b> relevant lines.
+      <span class="green"><b>20</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -241,7 +241,7 @@
 
             
 
-            <code class="ruby">    @statement = []</code>
+            <code class="ruby">    @transaction_log = []</code>
           </li>
         </div>
       
@@ -296,7 +296,7 @@
 
             
 
-            <code class="ruby">    credit_statement(amount)</code>
+            <code class="ruby">    @transaction_log &lt;&lt; { type: :credit, date: Date.today, value: amount, balance: @balance }</code>
           </li>
         </div>
       
@@ -351,7 +351,7 @@
 
             
 
-            <code class="ruby">    debit_statement(amount)</code>
+            <code class="ruby">    @transaction_log &lt;&lt; { type: :debit, date: Date.today, value: amount, balance: @balance }</code>
           </li>
         </div>
       
@@ -395,18 +395,18 @@
 
             
 
-            <code class="ruby">    &quot;date || credit || debit || balance\n#{@statement.reverse.join(&quot;\n&quot;)}&quot;</code>
+            <code class="ruby">    statement = @transaction_log.map do |transaction|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
+          <li class="covered" data-hits="6" data-linenumber="24">
+            <span class="hits">6</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">      transaction[:type] == :credit ? credit_statement(transaction) : debit_statement(transaction)</code>
           </li>
         </div>
       
@@ -417,12 +417,56 @@
 
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="26">
+          <li class="covered" data-hits="2" data-linenumber="27">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    &quot;date || credit || debit || balance\n#{statement.reverse.join(&quot;\n&quot;)}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="30">
             <span class="hits">1</span>
             
 
@@ -433,90 +477,46 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def credit_statement(amount)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="5" data-linenumber="29">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">    @statement &lt;&lt; &quot;#{Date.today.strftime(&#39;%d/%m/%Y&#39;)} || #{format(&#39;%.2f&#39;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="30">
-            
-            
-
-            
-
-            <code class="ruby">                                                                  amount)} || || #{format(&#39;%.2f&#39;, @balance)}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="never" data-hits="" data-linenumber="31">
             
             
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="32">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="33">
+          <li class="covered" data-hits="1" data-linenumber="32">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def debit_statement(amount)</code>
+            <code class="ruby">  def credit_statement(transaction)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="34">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="33">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">    @statement &lt;&lt; &quot;#{Date.today.strftime(&#39;%d/%m/%Y&#39;)} || || #{format(&#39;%.2f&#39;,</code>
+            <code class="ruby">    &quot;#{transaction[:date].strftime(&#39;%d/%m/%Y&#39;)} || #{format(&#39;%.2f&#39;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">                                                                  transaction[:value])} || || #{format(&#39;%.2f&#39;, transaction[:balance])}&quot;</code>
           </li>
         </div>
       
@@ -527,7 +527,7 @@
 
             
 
-            <code class="ruby">                                                                     amount)} || #{format(&#39;%.2f&#39;, @balance)}&quot;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -538,12 +538,56 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def debit_statement(transaction)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="38">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    &quot;#{transaction[:date].strftime(&#39;%d/%m/%Y&#39;)} || || #{format(&#39;%.2f&#39;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">                                                                     transaction[:value])} || #{format(&#39;%.2f&#39;, transaction[:balance])}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 

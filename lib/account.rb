@@ -6,32 +6,36 @@ class Account
 
   def initialize
     @balance = 0.00
-    @statement = []
+    @transaction_log = []
   end
 
   def deposit(amount)
     @balance += amount
-    credit_statement(amount)
+    @transaction_log << { type: :credit, date: Date.today, value: amount, balance: @balance }
   end
 
   def withdrawal(amount)
     @balance -= amount
-    debit_statement(amount)
+    @transaction_log << { type: :debit, date: Date.today, value: amount, balance: @balance }
   end
 
   def print_statement
-    "date || credit || debit || balance\n#{@statement.reverse.join("\n")}"
+    statement = @transaction_log.map do |transaction|
+      transaction[:type] == :credit ? credit_statement(transaction) : debit_statement(transaction)
+    end
+
+    "date || credit || debit || balance\n#{statement.reverse.join("\n")}"
   end
 
   private
 
-  def credit_statement(amount)
-    @statement << "#{Date.today.strftime('%d/%m/%Y')} || #{format('%.2f',
-                                                                  amount)} || || #{format('%.2f', @balance)}"
+  def credit_statement(transaction)
+    "#{transaction[:date].strftime('%d/%m/%Y')} || #{format('%.2f',
+                                                                  transaction[:value])} || || #{format('%.2f', transaction[:balance])}"
   end
 
-  def debit_statement(amount)
-    @statement << "#{Date.today.strftime('%d/%m/%Y')} || || #{format('%.2f',
-                                                                     amount)} || #{format('%.2f', @balance)}"
+  def debit_statement(transaction)
+    "#{transaction[:date].strftime('%d/%m/%Y')} || || #{format('%.2f',
+                                                                     transaction[:value])} || #{format('%.2f', transaction[:balance])}"
   end
 end
