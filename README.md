@@ -2,7 +2,14 @@
 A practice tech test, focusing on code quality.
 
 ## Motivation
-This is a practice for the type of tests potential employers offer as part of their recruitment process. They are not just looking for a valid solution that meets the requirements and acceptance criteria, but code that has built to a high standard. This means, TDD, OO, and good style, project structure, and good version control.
+This is a practice for the type of tests potential employers offer as part of their recruitment process. They are not just looking for a valid solution that meets the requirements and acceptance criteria, but code that is built to a high standard. This means, TDD, OO, and good style, project structure, and version control.
+
+## Design Approach
+Kept the project as simple as possible whilst maintaining testing, coverage, style and build status.
+
+Built the out the solution with TDD. Started from a simple account object that returned the appropriate string. Expanded this to include the transaction_log, and refactored the statement generation into a separate statement class.
+
+Refactored methods according to SRP and DRY as far as possible.
 
 ## Build status
 
@@ -11,9 +18,6 @@ Travis: [![Build Status](https://travis-ci.com/chriswhitehouse/bank_tech_test.sv
 ## Code style
 
 Rubocop: [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop-hq/rubocop)
-
-## Screenshots
-Include logo/demo screenshot etc.
 
 ## Tech/framework used
 Ruby, with Rspec testing framework.
@@ -59,31 +63,68 @@ date || credit || debit || balance
 
 
 ## Code Example
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+```Ruby
+class Account
+  attr_reader :balance
+
+  def initialize(statement_class = Statement)
+    @statement_class = statement_class
+    @balance = 0.00
+    @transaction_log = []
+  end
+
+  def deposit(amount)
+    raise "Error: Only numeric arguments can be deposited" unless is_numeric?(amount)
+    credit_balance(amount)
+    add_transaction(type: :credit, amount: amount)
+  end
+
+  def withdrawal(amount)
+    raise "Error: Only numeric arguments can be withdrawn" unless is_numeric?(amount)
+    debit_balance(amount)
+    add_transaction(type: :debit, amount: amount)
+  end
+
+  def print_statement
+    @statement_class.new(@transaction_log).string
+  end
+
+  private
+
+    def is_numeric?(amount)
+      amount.is_a?(Numeric)
+    end
+
+    def credit_balance(amount)
+      @balance += amount
+    end
+
+    def debit_balance(amount)
+      @balance -= amount
+    end
+
+    def add_transaction(type:, amount:)
+      @transaction_log << { type: type, date: Date.today, value: amount, balance: @balance }
+    end
+end
+```
 
 ## Installation
-Provide step by step series of examples and explanations about how to get a development env running.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+* Clone the repo.
+* `$ bundle install`
 
 ## Tests
-Describe and show how to run the tests with code examples.
+Test can be run with:
+`$ rspec`
+
+7 examples, 0 failures, 100% coverage.
 
 ## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+Use in irb:
 
-## Contribute
-
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
-
-## Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
-
-#### Anything else that seems useful
-
-## License
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © [Yourname]()
+`$ irb`
+`> require './lib/account.rb'`
+`> account = Account.new`
+`> account.deposit.(1000)`
+`> account.withdrawal(500)`
+`> account.print_statement`
