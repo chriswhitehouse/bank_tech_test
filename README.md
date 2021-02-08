@@ -5,10 +5,8 @@ A practice tech test, focusing on code quality.
 This is a practice for the type of tests potential employers offer as part of their recruitment process. They are not just looking for a valid solution that meets the requirements and acceptance criteria, but code that has built to a high standard. This means, TDD, OO, and good style, project structure, and good version control.
 
 ## Build status
-Build status of continuous integration i.e. travis, appveyor etc. Ex. -
 
-[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
+Travis: [![Build Status](https://travis-ci.com/chriswhitehouse/bank_tech_test.svg?branch=main)](https://travis-ci.com/chriswhitehouse/bank_tech_test)
 
 ## Code style
 If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
