@@ -16,13 +16,10 @@ Ruby Standard Style: [![Ruby Style Guide](https://img.shields.io/badge/code_styl
 Include logo/demo screenshot etc.
 
 ## Tech/framework used
-Ex. -
-
-<b>Built with</b>
-- [Electron](https://electron.atom.io)
+Ruby, with Rspec testing framework.
 
 ## Features
-What makes your project stand out?
+### User Stories
 
 ```
 As a customer,
@@ -38,6 +35,21 @@ I want to be able to make a withdrawal
 As a customer,
 So that I have a record of my deposits and withdrawals,
 I want to be able to print a statement
+```
+
+### Acceptance Criteria
+
+**Given** a customer makes a deposit of 1000 on 10-01-2012
+**And** a deposit of 2000 on 13-01-2012
+**And** a withdrawal of 500 on 14-01-2012
+**When** she prints her bank statement
+**Then** she would see
+
+```
+date || credit || debit || balance
+14/01/2012 || || 500.00 || 2500.00
+13/01/2012 || 2000.00 || 3000.00
+12/01/2012 || 1000.00 || 1000.00
 ```
 
 
