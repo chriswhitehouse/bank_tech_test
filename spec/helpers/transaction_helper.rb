@@ -41,15 +41,19 @@ module Helpers
 
     def transaction_log_double
       transaction_log_double = double('transaction_log')
-      allow(transaction_log_double).to receive(:show).and_return(transaction_log_array)
-      allow(transaction_log_double).to receive(:add_transaction).with(anything).and_return(true)
+      allow(transaction_log_double).to receive(:show)
+        .and_return(transaction_log_array)
+      allow(transaction_log_double).to receive(:add_transaction)
+        .with(anything)
+        .and_return(true)
 
       transaction_log_double
     end
 
     def transaction_log_class_double
       transaction_log_class_double = double('transaction_log_class')
-      allow(transaction_log_class_double).to receive(:new).and_return(transaction_log_double)
+      allow(transaction_log_class_double).to receive(:new)
+        .and_return(transaction_log_double)
 
       transaction_log_class_double
     end

@@ -17,18 +17,22 @@ class Account
     raise 'Error: Only numeric arguments can be deposited' unless numeric?(amount)
 
     credit_balance(amount)
-    @transaction_log.add_transaction(type: :credit, amount: amount, balance: @balance)
+    @transaction_log.add_transaction(
+      type: :credit, amount: amount, balance: @balance
+    )
   end
 
   def withdrawal(amount)
     raise 'Error: Only numeric arguments can be withdrawn' unless numeric?(amount)
 
     debit_balance(amount)
-    @transaction_log.add_transaction(type: :debit, amount: amount, balance: @balance)
+    @transaction_log.add_transaction(
+      type: :debit, amount: amount, balance: @balance
+    )
   end
 
   def print_statement
-    puts @statement_class.new(@transaction_log.show).string
+    @statement_class.new(@transaction_log.show).string
   end
 
   private

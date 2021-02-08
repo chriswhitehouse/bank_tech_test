@@ -18,7 +18,10 @@ module Helpers
 
     def statement_class_double
       statement_class_double = double('statement_class')
-      allow(statement_class_double).to receive(:new).with(anything).and_return(statement_double)
+      allow(statement_class_double)
+        .to receive(:new)
+        .with(anything)
+        .and_return(statement_double)
 
       statement_class_double
     end

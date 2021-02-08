@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-# A statement class for generating the statement to be printed by the Account class
+# A statement class for generating the statement to be printed by the Account
+# class
 class Statement
   attr_reader :string
 

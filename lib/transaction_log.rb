@@ -9,7 +9,9 @@ class TransactionLog
   end
 
   def add_transaction(type:, amount:, balance:)
-    @transaction_log << { type: type, date: Date.today, value: amount, balance: balance }
+    @transaction_log << {
+      type: type, date: Date.today, value: amount, balance: balance
+    }
   end
 
   def show
