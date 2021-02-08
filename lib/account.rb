@@ -7,25 +7,26 @@ class Account
   end
 
   def deposit(amount)
-    @statement << "#{Date.today().strftime("%d/%m/%Y")} || #{sprintf('%.2f', amount)} || || #{sprintf('%.2f', @balance += amount)}"
+    @balance += amount
+    credit_statement(amount)
   end
 
   def withdrawal(amount)
-    @statement << "#{Date.today().strftime("%d/%m/%Y")} || || #{sprintf('%.2f', amount)} || #{sprintf('%.2f', @balance -= amount)}"
+    @balance -= amount
+    debit_statement(amount)
   end
 
   def print_statement
-
     return "date || credit || debit || balance\n" + @statement.reverse.join("\n")
+  end
 
+  private
 
+  def credit_statement(amount)
+    @statement << "#{Date.today().strftime("%d/%m/%Y")} || #{sprintf('%.2f', amount)} || || #{sprintf('%.2f', @balance)}"
+  end
 
-    # if @balance == 1000
-    #   "date || credit || debit || balance\n12/01/2012 || 1000.00 || || 1000.00"
-    # elsif @balance == 3000
-    #   "date || credit || debit || balance\n13/01/2012 || 2000.00 || || 3000.00\n12/01/2012 || 1000.00 || || 1000.00"
-    # else
-    #   "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n12/01/2012 || 1000.00 || || 1000.00"
-    # end
+  def debit_statement(amount)
+    @statement << "#{Date.today().strftime("%d/%m/%Y")} || || #{sprintf('%.2f', amount)} || #{sprintf('%.2f', @balance)}"
   end
 end
