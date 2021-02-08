@@ -5,6 +5,8 @@
 class Statement
   attr_reader :string
 
+  STATEMENT_HEADER = "date || credit || debit || balance\n"
+
   def initialize(transaction_log)
     @string = create_string(transaction_log)
   end
@@ -16,7 +18,7 @@ class Statement
       stringify(transaction)
     end
 
-    "date || credit || debit || balance\n#{statement.reverse.join("\n")}"
+    STATEMENT_HEADER + statement.reverse.join("\n").to_s
   end
 
   def stringify(transaction)
