@@ -25,7 +25,7 @@ class Statement
       else
         "|| #{value_format(transaction[:value])} || "
       end +
-    "#{value_format(transaction[:balance])}"
+      value_format(transaction[:balance]).to_s
   end
 
   def date_format(date)
@@ -35,5 +35,4 @@ class Statement
   def value_format(value)
     format('%.2f', value)
   end
-
 end
