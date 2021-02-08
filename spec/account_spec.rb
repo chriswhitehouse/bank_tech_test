@@ -9,13 +9,13 @@ describe Account do
 
   describe "#deposit" do
     it 'should add money to the account balance' do
-      expect(account.deposit(1000)).to eq 1000
+      expect { account.deposit(1000) }.to change { account.balance }.by(1000)
     end
   end
 
   describe "#withdrawal" do
     it 'should remove money from the account balance' do
-      expect(account.withdrawal(1000)).to eq -1000
+      expect{ account.withdrawal(1000) }.to change { account.balance }.by(-1000)
     end
   end
 
@@ -27,16 +27,19 @@ describe Account do
     end
 
     it 'should print two transactions and the account balance for each' do
-      allow(Date).to receive(:today).and_return(test_date_2)
+      allow(Date).to receive(:today).and_return(test_date_1)
       account.deposit(1000)
+      allow(Date).to receive(:today).and_return(test_date_2)
       account.deposit(2000)
       expect(account.print_statement).to eq "date || credit || debit || balance\n13/01/2012 || 2000.00 || || 3000.00\n12/01/2012 || 1000.00 || || 1000.00"
     end
 
     it 'should print three transactions and the account balance for each' do
-      allow(Date).to receive(:today).and_return(test_date_3)
+      allow(Date).to receive(:today).and_return(test_date_1)
       account.deposit(1000)
+      allow(Date).to receive(:today).and_return(test_date_2)
       account.deposit(2000)
+      allow(Date).to receive(:today).and_return(test_date_3)
       account.withdrawal(500)
       expect(account.print_statement).to eq "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n12/01/2012 || 1000.00 || || 1000.00"
     end
