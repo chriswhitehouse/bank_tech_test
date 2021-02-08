@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# an Account class for recieving deposits, withdrawals and printing statements
 class Account
   attr_reader :balance
 
@@ -17,16 +20,18 @@ class Account
   end
 
   def print_statement
-    return "date || credit || debit || balance\n" + @statement.reverse.join("\n")
+    "date || credit || debit || balance\n#{@statement.reverse.join("\n")}"
   end
 
   private
 
   def credit_statement(amount)
-    @statement << "#{Date.today().strftime("%d/%m/%Y")} || #{sprintf('%.2f', amount)} || || #{sprintf('%.2f', @balance)}"
+    @statement << "#{Date.today.strftime('%d/%m/%Y')} || #{format('%.2f',
+                                                                  amount)} || || #{format('%.2f', @balance)}"
   end
 
   def debit_statement(amount)
-    @statement << "#{Date.today().strftime("%d/%m/%Y")} || || #{sprintf('%.2f', amount)} || #{sprintf('%.2f', @balance)}"
+    @statement << "#{Date.today.strftime('%d/%m/%Y')} || || #{format('%.2f',
+                                                                     amount)} || #{format('%.2f', @balance)}"
   end
 end
