@@ -30,12 +30,16 @@ class Account
   private
 
   def credit_statement(transaction)
-    "#{transaction[:date].strftime('%d/%m/%Y')} || #{format('%.2f',
-                                                                  transaction[:value])} || || #{format('%.2f', transaction[:balance])}"
+    "#{transaction[:date].strftime('%d/%m/%Y')} || "\
+    "#{format('%.2f', transaction[:value])} || "\
+    '|| '\
+    "#{format('%.2f', transaction[:balance])}"
   end
 
   def debit_statement(transaction)
-    "#{transaction[:date].strftime('%d/%m/%Y')} || || #{format('%.2f',
-                                                                     transaction[:value])} || #{format('%.2f', transaction[:balance])}"
+    "#{transaction[:date].strftime('%d/%m/%Y')} || "\
+    '|| '\
+    "#{format('%.2f', transaction[:value])} || "\
+    "#{format('%.2f', transaction[:balance])}"
   end
 end

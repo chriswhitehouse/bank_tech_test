@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-08T16:58:40+00:00">2021-02-08T16:58:40+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-08T17:04:06+00:00">2021-02-08T17:04:06+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -73,7 +73,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#eaebeb3c595eed3c43b8156ae96f311bc5abfe1a" class="src_link" title="lib/account.rb">lib/account.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">41</td>
+            <td class="cell--number">46</td>
             <td class="cell--number">20</td>
             <td class="cell--number">20</td>
             <td class="cell--number">0</td>
@@ -505,7 +505,7 @@
 
             
 
-            <code class="ruby">    &quot;#{transaction[:date].strftime(&#39;%d/%m/%Y&#39;)} || #{format(&#39;%.2f&#39;,</code>
+            <code class="ruby">    &quot;#{transaction[:date].strftime(&#39;%d/%m/%Y&#39;)} || &quot;\</code>
           </li>
         </div>
       
@@ -516,7 +516,7 @@
 
             
 
-            <code class="ruby">                                                                  transaction[:value])} || || #{format(&#39;%.2f&#39;, transaction[:balance])}&quot;</code>
+            <code class="ruby">    &quot;#{format(&#39;%.2f&#39;,transaction[:value])} || &quot;\</code>
           </li>
         </div>
       
@@ -527,7 +527,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    &quot;|| &quot;\</code>
           </li>
         </div>
       
@@ -538,45 +538,23 @@
 
             
 
+            <code class="ruby">    &quot;#{format(&#39;%.2f&#39;,  transaction[:balance])}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="37">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def debit_statement(transaction)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="38">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    &quot;#{transaction[:date].strftime(&#39;%d/%m/%Y&#39;)} || || #{format(&#39;%.2f&#39;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="39">
-            
-            
-
-            
-
-            <code class="ruby">                                                                     transaction[:value])} || #{format(&#39;%.2f&#39;, transaction[:balance])}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="40">
+          <li class="never" data-hits="" data-linenumber="38">
             
             
 
@@ -587,7 +565,84 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def debit_statement(transaction)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="41">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    &quot;#{transaction[:date].strftime(&#39;%d/%m/%Y&#39;)} || &quot;\</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">    &quot;|| &quot;\</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">    &quot;#{format(&#39;%.2f&#39;, transaction[:value])} || &quot;\</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">    &quot;#{format(&#39;%.2f&#39;, transaction[:balance])}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
