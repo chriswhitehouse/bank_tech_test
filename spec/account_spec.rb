@@ -30,5 +30,11 @@ describe Account do
       account.deposit(2000)
       expect(account.print_statement).to eq "date || credit || debit || balance\n13/01/2012 || 2000.00 || || 3000.00\n12/01/2012 || 1000.00 || || 1000.00"
     end
+
+    it 'should print three transactions and the account balance for each' do
+      allow(Date).to receive(:today).and_return(test_date_2)
+      account.withdrawal(500)
+      expect(account.print_statement).to eq "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n12/01/2012 || 1000.00 || || 1000.00"
+    end
   end
 end
