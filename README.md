@@ -7,7 +7,7 @@ This is a practice for the type of tests potential employers offer as part of th
 ## Design Approach
 Kept the project as simple as possible whilst maintaining testing, coverage, style and build status.
 
-Built the out the solution with TDD. Started from a simple account object that returned the appropriate string. Expanded this to include the transaction_log, and refactored the statement generation into a separate statement class.
+Built out the solution with TDD. Started from a simple account object that returned the appropriate string. Expanded this to include the transaction_log, and refactored the statement generation into a separate statement class.
 
 Refactored methods according to SRP and DRY as far as possible.
 
@@ -18,6 +18,10 @@ Travis: [![Build Status](https://travis-ci.com/chriswhitehouse/bank_tech_test.sv
 ## Code style
 
 Rubocop: [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop-hq/rubocop)
+
+## Screenshots
+
+![irb](https://github.com/chriswhitehouse/bank_tech_test/blob/main/screenshots/Screenshot%202021-02-08%20at%2018.50.13.png)
 
 ## Tech/framework used
 Ruby, with Rspec testing framework.
@@ -60,6 +64,7 @@ date || credit || debit || balance
 | Nouns     | Actions     |
 | :------------- | :------------- |
 | Account     | deposit, withdrawal, print_statement       |
+| Statement | create_string |
 
 
 ## Code Example
