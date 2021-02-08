@@ -17,6 +17,7 @@ class Account
   end
 
   def withdrawal(amount)
+    raise "Error: Only numeric arguments can be withdrawn" unless amount.is_a?(Numeric)
     @balance -= amount
     @transaction_log << { type: :debit, date: Date.today, value: amount, balance: @balance }
   end

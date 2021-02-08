@@ -27,6 +27,10 @@ describe Account do
     it 'should remove money from the account balance' do
       expect { account.withdrawal(1000) }.to change { account.balance }.by(-1000)
     end
+
+    it 'should return error if non integer is passed' do
+      expect { account.withdrawal('') }.to raise_error("Error: Only numeric arguments can be withdrawn")
+    end
   end
 
   describe '#print_statement' do
