@@ -63,7 +63,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.8.1)
+    rubocop (1.9.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -74,9 +74,6 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
-    rubocop-performance (1.9.2)
-      rubocop (>= 0.90.0, < 2.0)
-      rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.4)
     simplecov (0.21.2)
@@ -89,9 +86,6 @@ GEM
       terminal-table
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
-    standard (0.12.0)
-      rubocop (= 1.8.1)
-      rubocop-performance (= 1.9.2)
     terminal-table (1.6.0)
     thread_safe (0.3.6)
     travis (1.10.0)
@@ -116,7 +110,6 @@ DEPENDENCIES
   rubocop
   simplecov
   simplecov-console
-  standard
   travis
 
 RUBY VERSION
