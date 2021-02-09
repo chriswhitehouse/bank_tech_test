@@ -16,7 +16,7 @@ class Statement
       stringify(transaction)
     end
 
-    return STATEMENT_HEADER + statement.reverse.join("\n").to_s
+    STATEMENT_HEADER + statement.reverse.join("\n").to_s
   end
 
   private

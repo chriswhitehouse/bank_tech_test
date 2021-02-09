@@ -9,11 +9,11 @@ describe Account do
   let(:testdate3) { Date.new(2012, 1, 14) }
 
   let(:statement_string) do
-                          "date || credit || debit || balance\n"\
-                          "14/01/2012 || || 500.00 || 2500.00\n"\
-                          "13/01/2012 || 2000.00 || || 3000.00\n"\
-                          "12/01/2012 || 1000.00 || || 1000.00"
-                        end
+    "date || credit || debit || balance\n"\
+    "14/01/2012 || || 500.00 || 2500.00\n"\
+    "13/01/2012 || 2000.00 || || 3000.00\n"\
+    '12/01/2012 || 1000.00 || || 1000.00'
+  end
   let(:statement_double) { double :statement, create_string: statement_string }
   let(:statement_class_double) { double :statement_class, new: statement_double }
 
@@ -75,7 +75,7 @@ describe Account do
       account.deposit(2000)
       allow(Date).to receive(:today).and_return(testdate3)
       account.withdrawal(500)
-      
+
       expect { account.print_statement }.to output(statement_string).to_stdout
     end
   end

@@ -7,7 +7,7 @@ describe TransactionLog do
   let(:testdate1) { Date.new(2012, 1, 12) }
   let(:testdate2) { Date.new(2012, 1, 13) }
   let(:testdate3) { Date.new(2012, 1, 14) }
-  
+
   describe '#add_transaction' do
     it 'should record all transactions' do
       allow(Date).to receive(:today).and_return(testdate1)
