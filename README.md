@@ -136,9 +136,11 @@ Test can be run with:
 ## How to use?
 Use in irb:
 
-`$ irb`
-`> require './lib/account.rb'`
-`> account = Account.new`
-`> account.deposit.(1000)`
-`> account.withdrawal(500)`
-`> account.print_statement`
+```
+$ irb
+> require './lib/account.rb'
+> account = Account.new
+> account.deposit.(1000)
+> account.withdrawal(500)
+> account.print_statement
+```
