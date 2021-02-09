@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'transaction'
 
 describe Transaction do
@@ -11,7 +13,6 @@ describe Transaction do
       expect(transaction.date).to eq testdate1
       expect(transaction.credit).to eq 500
       expect(transaction.balance).to eq 500
-
     end
   end
 end

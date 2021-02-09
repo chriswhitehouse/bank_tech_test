@@ -13,13 +13,7 @@ describe TransactionLog do
   let(:transaction2_double) { double :transaction2, date: testdate2, credit: 2000, debit: '', balance: 3000 }
   let(:transaction3_double) { double :transaction3, date: testdate3, credit: '', debit: 500, balance: 2500 }
 
-  let(:transaction_log_array) do
-    [
-      transaction1_double,
-      transaction2_double,
-      transaction3_double
-    ]
-  end
+  let(:transaction_log_array) { [transaction1_double, transaction2_double, transaction3_double] }
 
   describe '#add_transaction' do
     it 'should record all transactions' do

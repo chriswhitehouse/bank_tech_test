@@ -25,8 +25,7 @@ class Statement
     [date_format(transaction.date),
      value_format(transaction.credit),
      value_format(transaction.debit),
-     value_format(transaction.balance)
-   ].join(' ||')
+     value_format(transaction.balance)].join(' ||')
   end
 
   def date_format(date)
@@ -34,6 +33,6 @@ class Statement
   end
 
   def value_format(value)
-    value.is_a?(Numeric) ? ' ' + format('%.2f', value) : value
+    value.is_a?(Numeric) ? " #{format('%.2f', value)}" : value
   end
 end

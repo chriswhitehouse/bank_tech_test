@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'time'
 
+# A class to record rach transaction
 class Transaction
   attr_reader :date, :credit, :debit, :balance
 
