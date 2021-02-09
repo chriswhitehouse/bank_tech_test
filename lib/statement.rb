@@ -22,10 +22,10 @@ class Statement
   private
 
   def stringify(transaction)
-    [date_format(transaction[:date]),
-     value_format(transaction[:credit]),
-     value_format(transaction[:debit]),
-     value_format(transaction[:balance])
+    [date_format(transaction.date),
+     value_format(transaction.credit),
+     value_format(transaction.debit),
+     value_format(transaction.balance)
    ].join(' ||')
   end
 
