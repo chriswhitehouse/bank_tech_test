@@ -14,7 +14,7 @@ class Account
   end
 
   def deposit(amount)
-    raise 'Error: Only positive numeric arguments can be deposited' unless numeric?(amount) && amount.positive?
+    raise 'Error: Only positive numeric arguments can be deposited' unless positive_numeric?(amount)
 
     credit_balance(amount)
     @transaction_log.add_transaction(
@@ -23,9 +23,9 @@ class Account
   end
 
   def withdrawal(amount)
-    raise 'Error: Only positive numeric arguments can be withdrawn' unless numeric?(amount) && amount.positive?
-    raise "Error: Insufficient funds available" unless amount <= @balance
-    
+    raise 'Error: Only positive numeric arguments can be withdrawn' unless positive_numeric?(amount)
+    raise "Error: Insufficient funds available" unless sufficient_balance?(amount)
+
     debit_balance(amount)
     @transaction_log.add_transaction(
       type: :debit, amount: amount, balance: @balance
@@ -38,8 +38,12 @@ class Account
 
   private
 
-  def numeric?(amount)
-    amount.is_a?(Numeric)
+  def positive_numeric?(amount)
+    amount.is_a?(Numeric) && amount.positive?
+  end
+
+  def sufficient_balance?(amount)
+    amount <= @balance
   end
 
   def credit_balance(amount)
