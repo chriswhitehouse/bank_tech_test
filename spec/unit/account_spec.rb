@@ -19,9 +19,9 @@ describe Account do
 
   let(:transaction_log_array) do
     [
-      { type: :credit, date: testdate1, value: 1000, balance: 1000.0 },
-      { type: :credit, date: testdate2, value: 2000, balance: 3000.0 },
-      { type: :debit, date: testdate3, value: 500, balance: 2500.0 }
+      { date: testdate1, credit: 1000, debit: '', balance: 1000.0 },
+      { date: testdate2, credit: 2000, debit: '', balance: 3000.0 },
+      { date: testdate3, credit: '', debit: 500, balance: 2500.0 }
     ]
   end
   let(:transaction_log_double) { double :transaction_log, show: transaction_log_array, add_transaction: true }

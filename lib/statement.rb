@@ -22,13 +22,11 @@ class Statement
   private
 
   def stringify(transaction)
-    "#{date_format(transaction[:date])} || " +
-      if transaction[:type] == :credit
-        "#{value_format(transaction[:value])} || || "
-      else
-        "|| #{value_format(transaction[:value])} || "
-      end +
-      value_format(transaction[:balance]).to_s
+    [date_format(transaction[:date]),
+     value_format(transaction[:credit]),
+     value_format(transaction[:debit]),
+     value_format(transaction[:balance])
+   ].join(' ||')
   end
 
   def date_format(date)
@@ -36,6 +34,10 @@ class Statement
   end
 
   def value_format(value)
-    format('%.2f', value)
+    if value.is_a?(Numeric)
+      ' ' + format('%.2f', value)
+    else
+      value
+    end
   end
 end
