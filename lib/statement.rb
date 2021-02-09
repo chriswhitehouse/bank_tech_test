@@ -34,10 +34,6 @@ class Statement
   end
 
   def value_format(value)
-    if value.is_a?(Numeric)
-      ' ' + format('%.2f', value)
-    else
-      value
-    end
+    value.is_a?(Numeric) ? ' ' + format('%.2f', value) : value
   end
 end

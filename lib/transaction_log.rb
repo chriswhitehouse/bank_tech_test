@@ -18,8 +18,7 @@ class TransactionLog
 
   def create_transacton_hash(type:, value:, balance:)
     if type == :credit
-
-       { date: Date.today, credit: value, debit: '' , balance: balance }
+      { date: Date.today, credit: value, debit: '' , balance: balance }
     else
       { date: Date.today, credit: '', debit: value , balance: balance }
     end
