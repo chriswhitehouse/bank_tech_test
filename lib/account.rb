@@ -24,7 +24,8 @@ class Account
 
   def withdrawal(amount)
     raise 'Error: Only positive numeric arguments can be withdrawn' unless numeric?(amount) && amount.positive?
-
+    raise "Error: Insufficient funds available" unless amount <= @balance
+    
     debit_balance(amount)
     @transaction_log.add_transaction(
       type: :debit, amount: amount, balance: @balance

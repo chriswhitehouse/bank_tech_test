@@ -24,6 +24,7 @@ describe Account do
 
   describe '#withdrawal' do
     it 'should remove money from the account balance' do
+      account.deposit(1000)
       expect { account.withdrawal(1000) }.to change { account.balance }.by(-1000)
     end
 
@@ -35,6 +36,11 @@ describe Account do
     it 'should return error if negative integer is passed' do
       expect { account.withdrawal(-1) }
         .to raise_error('Error: Only positive numeric arguments can be withdrawn')
+    end
+
+    it 'should return error if insufficient funds are available' do
+      expect { account.withdrawal(500) }
+        .to raise_error('Error: Insufficient funds available')
     end
   end
 
