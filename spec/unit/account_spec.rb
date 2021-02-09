@@ -13,7 +13,12 @@ describe Account do
 
     it 'should return error if non integer is passed' do
       expect { account.deposit('') }
-        .to raise_error('Error: Only numeric arguments can be deposited')
+        .to raise_error('Error: Only positive numeric arguments can be deposited')
+    end
+
+    it 'should return error if negative integer is passed' do
+      expect { account.deposit(-1) }
+        .to raise_error('Error: Only positive numeric arguments can be deposited')
     end
   end
 

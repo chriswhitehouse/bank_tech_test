@@ -14,7 +14,7 @@ class Account
   end
 
   def deposit(amount)
-    raise 'Error: Only numeric arguments can be deposited' unless numeric?(amount)
+    raise 'Error: Only positive numeric arguments can be deposited' unless numeric?(amount) && amount.positive?
 
     credit_balance(amount)
     @transaction_log.add_transaction(
