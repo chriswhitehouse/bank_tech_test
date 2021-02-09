@@ -29,7 +29,12 @@ describe Account do
 
     it 'should return error if non integer is passed' do
       expect { account.withdrawal('') }
-        .to raise_error('Error: Only numeric arguments can be withdrawn')
+        .to raise_error('Error: Only positive numeric arguments can be withdrawn')
+    end
+
+    it 'should return error if negative integer is passed' do
+      expect { account.withdrawal(-1) }
+        .to raise_error('Error: Only positive numeric arguments can be withdrawn')
     end
   end
 

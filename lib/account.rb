@@ -23,7 +23,7 @@ class Account
   end
 
   def withdrawal(amount)
-    raise 'Error: Only numeric arguments can be withdrawn' unless numeric?(amount)
+    raise 'Error: Only positive numeric arguments can be withdrawn' unless numeric?(amount) && amount.positive?
 
     debit_balance(amount)
     @transaction_log.add_transaction(
