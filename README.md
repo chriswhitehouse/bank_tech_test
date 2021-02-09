@@ -61,7 +61,7 @@ date || credit || debit || balance
 ```
 
 ### Domain Model
-| Nouns     | Actions     |
+| Objects     | Methods     |
 | :------------- | :------------- |
 | Account     | deposit, withdrawal, print_statement       |
 | Statement | create_string |
