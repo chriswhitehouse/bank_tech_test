@@ -21,7 +21,7 @@ Rubocop: [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-br
 
 ## Screenshots
 
-![irb](https://github.com/chriswhitehouse/bank_tech_test/blob/main/screenshots/Screenshot%202021-02-08%20at%2018.50.13.png)
+![irb](https://github.com/chriswhitehouse/bank_tech_test/blob/main/screenshots/Screenshot%202021-02-09%20at%2020.00.29.png)
 
 ## Tech/framework used
 Ruby, with Rspec testing framework.
@@ -66,6 +66,7 @@ date || credit || debit || balance
 | Account     | deposit, withdrawal, print_statement       |
 | Statement | create_string |
 | TransactionLog | add_transaction, show |
+| Transaction | date, credit, debit, balance |
 
 
 ## Code Example
@@ -73,45 +74,52 @@ date || credit || debit || balance
 class Account
   attr_reader :balance
 
-  def initialize(statement_class = Statement)
+  def initialize(statement_class = Statement, transaction_log_class = TransactionLog)
     @statement_class = statement_class
     @balance = 0.00
-    @transaction_log = []
+    @transaction_log = transaction_log_class.new
   end
 
   def deposit(amount)
-    raise "Error: Only numeric arguments can be deposited" unless is_numeric?(amount)
+    raise 'Error: Only positive numeric arguments can be deposited' unless positive_numeric?(amount)
+
     credit_balance(amount)
-    add_transaction(type: :credit, amount: amount)
+    @transaction_log.add_transaction(
+      type: :credit, amount: amount, balance: @balance
+    )
   end
 
   def withdrawal(amount)
-    raise "Error: Only numeric arguments can be withdrawn" unless is_numeric?(amount)
+    raise 'Error: Only positive numeric arguments can be withdrawn' unless positive_numeric?(amount)
+    raise 'Error: Insufficient funds available' unless sufficient_balance?(amount)
+
     debit_balance(amount)
-    add_transaction(type: :debit, amount: amount)
+    @transaction_log.add_transaction(
+      type: :debit, amount: amount, balance: @balance
+    )
   end
 
   def print_statement
-    @statement_class.new(@transaction_log).string
+    print @statement_class.new(@transaction_log.show).create_string
   end
 
   private
 
-    def is_numeric?(amount)
-      amount.is_a?(Numeric)
-    end
+  def positive_numeric?(amount)
+    amount.is_a?(Numeric) && amount.positive?
+  end
 
-    def credit_balance(amount)
-      @balance += amount
-    end
+  def sufficient_balance?(amount)
+    amount <= @balance
+  end
 
-    def debit_balance(amount)
-      @balance -= amount
-    end
+  def credit_balance(amount)
+    @balance += amount
+  end
 
-    def add_transaction(type:, amount:)
-      @transaction_log << { type: type, date: Date.today, value: amount, balance: @balance }
-    end
+  def debit_balance(amount)
+    @balance -= amount
+  end
 end
 ```
 
@@ -123,7 +131,7 @@ end
 Test can be run with:
 `$ rspec`
 
-7 examples, 0 failures, 100% coverage.
+12 examples, 0 failures, 100% coverage.
 
 ## How to use?
 Use in irb:

@@ -2,6 +2,7 @@
 
 require './lib/statement'
 require './lib/transaction_log'
+require './lib/transaction'
 require 'time'
 # An Account class for recieving deposits, withdrawals and printing statements
 class Account
