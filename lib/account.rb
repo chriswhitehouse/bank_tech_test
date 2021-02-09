@@ -32,7 +32,7 @@ class Account
   end
 
   def print_statement
-    @statement_class.new(@transaction_log.show).string
+    @statement_class.new(@transaction_log.show).create_string
   end
 
   private

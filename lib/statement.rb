@@ -8,18 +8,18 @@ class Statement
   STATEMENT_HEADER = "date || credit || debit || balance\n"
 
   def initialize(transaction_log)
-    @string = create_string(transaction_log)
+    @transaction_log = transaction_log
   end
 
-  private
-
-  def create_string(transaction_log)
-    statement = transaction_log.map do |transaction|
+  def create_string
+    statement = @transaction_log.map do |transaction|
       stringify(transaction)
     end
 
-    STATEMENT_HEADER + statement.reverse.join("\n").to_s
+    return STATEMENT_HEADER + statement.reverse.join("\n").to_s
   end
+
+  private
 
   def stringify(transaction)
     "#{date_format(transaction[:date])} || " +

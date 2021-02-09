@@ -11,7 +11,7 @@ module Helpers
 
     def statement_double
       statement_double = double('statement')
-      allow(statement_double).to receive(:string).and_return(statement_string)
+      allow(statement_double).to receive(:create_string).and_return(statement_string)
 
       statement_double
     end
