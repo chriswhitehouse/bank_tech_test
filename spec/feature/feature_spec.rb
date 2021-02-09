@@ -10,6 +10,7 @@ describe 'Acceptance Criteria' do
   it 'should receive two deposits and one withdrawal and return a statement' do
     three_transactions
 
-    expect(account.print_statement).to eq(statement_string)
+    # expect { print('foo') }.to output(/foo/).to_stdout
+    expect { account.print_statement }.to output(statement_string).to_stdout
   end
 end

@@ -31,7 +31,7 @@ describe Account do
   describe '#print_statement' do
     it 'should print all transactions with balances' do
       three_transactions
-      expect(account.print_statement).to eq(statement_string)
+      expect { account.print_statement }.to output(statement_string).to_stdout
     end
   end
 end
