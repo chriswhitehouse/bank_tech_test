@@ -34,7 +34,7 @@ class Account
   end
 
   def print_statement
-    print @statement_class.new(@transaction_log.show).create_string
+    print @statement_class.new.create_string(@transaction_log.show)
   end
 
   private

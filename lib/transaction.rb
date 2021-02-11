@@ -11,9 +11,9 @@ class Transaction
 
     if type == :credit
       @credit = value
-      @debit = ''
+      @debit = nil
     else
-      @credit = ''
+      @credit = nil
       @debit = value
     end
 

@@ -26,11 +26,11 @@ describe Statement do
     '12/01/2012 || 1000.00 || || 1000.00'
   end
 
-  let(:statement) { Statement.new(transaction_log_array) }
+  let(:statement) { Statement.new }
 
   describe '#string' do
     it 'should return a statement string to be printed' do
-      expect(statement.create_string).to eq(statement_string)
+      expect(statement.create_string(transaction_log_array)).to eq(statement_string)
     end
   end
 end

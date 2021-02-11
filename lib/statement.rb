@@ -6,13 +6,9 @@ class Statement
   attr_reader :string
 
   STATEMENT_HEADER = "date || credit || debit || balance\n"
-
-  def initialize(transaction_log)
-    @transaction_log = transaction_log
-  end
-
-  def create_string
-    statement = @transaction_log.map do |transaction|
+  
+  def create_string(transaction_log)
+    statement = transaction_log.map do |transaction|
       stringify(transaction)
     end
 
